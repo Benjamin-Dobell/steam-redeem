@@ -1,0 +1,33 @@
+{
+  "name": "steam-redeem",
+  "version": "1.0.0",
+  "description": "A Chrome extension to simplify Steam key redemption.",
+  "main": "tweak.js",
+  "jsnext:main": "src/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Benjamin-Dobell/chrome-steam-redeem.git"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/rollup -c rollup.background.config.js && ./node_modules/.bin/rollup -c rollup.content.config.js"
+  },
+  "author": "Benjamin Dobell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Benjamin-Dobell/chrome-steam-redeem"
+  },
+  "homepage": "https://github.com/Benjamin-Dobell/chrome-steam-redeem",
+  "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "postcss-modules": "^0.6.3",
+    "rollup": "^0.35.11",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^3.3.1",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-postcss": "^0.2.0",
+    "then-chrome": "^1.0.7",
+    "whatwg-fetch": "^2.0.3"
+  }
+}
