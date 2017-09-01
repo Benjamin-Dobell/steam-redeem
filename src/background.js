@@ -41,7 +41,7 @@ async function redeem(tabId, title, key, sessionId) {
         }
     } catch (e) {
         chrome.tabs.sendMessage(tabId, {redeemed: {key, state: RedemptionState.DEFAULT}})
-        alert("You must first login to Steam through your browser before you can redeem keys using Steam Redeemer.")
+        alert("You must first login to Steam through your browser before you can redeem keys using Steam Redeem.")
         chrome.tabs.create({ url: 'https://store.steampowered.com/login/?redir=' })
     }
 }
