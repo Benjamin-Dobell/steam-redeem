@@ -14,7 +14,7 @@ function redeemPressed(event) {
             setupSmallRedeemButton(title, key, node, RedemptionState.REDEEMING)
         }
 
-        chrome.runtime.sendMessage({redeem: [{title, key}]})
+        browser.runtime.sendMessage({redeem: [{title, key}]})
     }
 }
 
@@ -175,7 +175,7 @@ function processKeys() {
     })
 
     const keys = smallButtonKeys.concat(largeButtonKeys)
-    chrome.runtime.sendMessage({ keysFound: keys.length > 0 })
+    browser.runtime.sendMessage({ keysFound: keys.length > 0 })
     return keys
 }
 
@@ -201,10 +201,10 @@ let newKeyObserver = new MutationObserver((mutations) => {
     processKeys()
 })
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+browser.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if (request.redeemAll) {
         const keys = processKeys()
-        chrome.runtime.sendMessage({redeem: keys.map(entry => ({title: entry.title, key: entry.key}))})
+        browser.runtime.sendMessage({redeem: keys.map(entry => ({title: entry.title, key: entry.key}))})
     }
 
     if (request.redeemed) {

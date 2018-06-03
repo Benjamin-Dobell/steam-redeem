@@ -1,5 +1,5 @@
 .DS_Store
 /.idea/
+*.iml
 /node_modules/
-/extension/*.js
-/extension/*.js.map
+/build/

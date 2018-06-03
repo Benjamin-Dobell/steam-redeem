@@ -1,0 +1,24 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": [
+            "chrome >= 42",
+            "edge >= 38",
+            "firefox >= 48",
+            "opera >= 29"
+          ]
+        },
+        "modules": false
+      }
+    ],
+    [
+      "@babel/preset-stage-3"
+    ]
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime"
+  ]
+}
