@@ -1,6 +1,6 @@
 # Steam Redeem
 
-This Chrome extension detects Steam keys in a web-page and injects a 'Redeem' button so you can quickly redeem/activate Steam keys in your browser. If you have a page with several Steam keys visible, pressing the Steam Redeem logo next to your address bar will automatically bulk redeem all keys visible on the page.
+Steam Redeem is Chrome, Edge, Firefox and Opera extension that detects Steam keys in a web-page and injects a 'Redeem' button so you can quickly redeem/activate Steam keys in your browser. If you have a page with several Steam keys visible, pressing the Steam Redeem logo next to your address bar will automatically bulk redeem all keys visible on the page.
 
 ## Work in Progress
 
@@ -15,4 +15,4 @@ yarn
 yarn build
 ```
 
-the "unpacked" extension will be built into the `extension/` sub-directory.
+the "unpacked" extensions will be built into the `build/` sub-directory.
