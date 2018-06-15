@@ -30,7 +30,7 @@ export default options => ({
 		{
 			file: `build/${options.variant}/background.js`,
 			format: 'iife',
-			sourceMap: true,
+			sourcemap: true,
 		},
 	],
 })
