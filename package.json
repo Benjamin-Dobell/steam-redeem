@@ -9,7 +9,9 @@
     "url": "git+https://github.com/Benjamin-Dobell/chrome-steam-redeem.git"
   },
   "scripts": {
-    "build": "node ./build.js"
+    "build": "node ./build.js",
+    "build-debug": "node ./build.js --sourcemap=inline",
+    "clean": "rm -rf ./build/"
   },
   "author": "Benjamin Dobell",
   "license": "MIT",
@@ -19,7 +21,6 @@
   "homepage": "https://github.com/Benjamin-Dobell/chrome-steam-redeem",
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.49",
-    "minimist": "^1.2.0",
     "webextension-polyfill": "git+https://github.com/Benjamin-Dobell/webextension-polyfill.git#dist/0.3.0-alpha.0-unofficial"
   },
   "devDependencies": {
@@ -29,6 +30,7 @@
     "@babel/preset-stage-3": "^7.0.0-beta.49",
     "@babel/register": "^7.0.0-beta.49",
     "magic-string": "^0.25.0",
+    "minimist": "^1.2.0",
     "postcss-modules": "^1.1.0",
     "rollup": "^0.60.7",
     "rollup-plugin-babel": "^4.0.0-beta.4",

@@ -24,7 +24,7 @@ export default options => {
 			{
 				file: `build/${options.variant}/content.js`,
 				format: 'iife',
-				sourcemap: true,
+				sourcemap: options.sourcemap || false,
 			},
 		],
 	}
