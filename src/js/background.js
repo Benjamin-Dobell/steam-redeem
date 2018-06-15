@@ -1,4 +1,4 @@
-import { RedemptionState } from './redemption.js'
+import { RedemptionStatus } from './redemption'
 
 const REDEEM_URL = 'https://store.steampowered.com/account/ajaxregisterkey'
 
@@ -20,13 +20,13 @@ async function redeem(tabId, title, key, sessionId) {
         const result = await response.json()
 
         if (result.success === 1) {
-            browser.tabs.sendMessage(tabId, {redeemed: {key, state: RedemptionState.REDEEMED}})
+            browser.tabs.sendMessage(tabId, {redeemed: {key, status: RedemptionStatus.REDEEMED}})
         } else {
             if (result.purchase_receipt_info && result.purchase_receipt_info.line_items && result.purchase_receipt_info.line_items.length > 0) {
-                browser.tabs.sendMessage(tabId, {redeemed: {key, state: RedemptionState.REDEEMED}})
+                browser.tabs.sendMessage(tabId, {redeemed: {key, status: RedemptionStatus.REDEEMED}})
                 alert("You've already redeemed '" + title + "'")
             } else {
-                browser.tabs.sendMessage(tabId, {redeemed: {key, state: RedemptionState.FAILED}})
+                browser.tabs.sendMessage(tabId, {redeemed: {key, status: RedemptionStatus.FAILED}})
 
                 if (result.purchase_result_details === 53) {
                     alert("Steam reported too many key redemption attempts whilst redeeming '" + title + "'. You'll have to try again later.")
@@ -36,7 +36,7 @@ async function redeem(tabId, title, key, sessionId) {
             }
         }
     } catch (e) {
-        browser.tabs.sendMessage(tabId, {redeemed: {key, state: RedemptionState.DEFAULT}})
+        browser.tabs.sendMessage(tabId, {redeemed: {key, status: RedemptionStatus.DEFAULT}})
         alert("You must first login to Steam through your browser before you can redeem keys using Steam Redeem.")
         browser.tabs.create({ url: 'https://store.steampowered.com/login/?redir=' })
     }
@@ -55,7 +55,7 @@ async function fetchCookieThenRedeem(tabId, title, key) {
 }
 
 async function redeemItems(tabId, items) {
-    for (let item of items) {
+    for (const item of items) {
         const {title, key} = item
 
         if (title && key) {
