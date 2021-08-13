@@ -9,7 +9,7 @@ function detectHumbleBundleKeys() {
 		const titleNode = document.evaluate("./*[@class='game-name']", containerNode, null, XPathResult.ANY_TYPE, null).iterateNext()
 
 		if (keyNode && titleNode) {
-			const key = keyNode.textContent.trim()
+			const key = keyNode.textContent.trim().split('\n')[0]
 
 			if (key.match(/[A-Z0-9]+(?:-[A-Z0-9]+)+/)) {
 				redeemables.push({
